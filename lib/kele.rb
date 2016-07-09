@@ -1,5 +1,6 @@
 require 'httparty'
 require 'kele/errors'
+require 'json'
 
 class Kele
   include HTTParty
@@ -25,6 +26,7 @@ class Kele
   def get_me
     url = "https://www.bloc.io/api/v1/users/me"
     response = self.class.get(url, headers: { "authorization" => @auth_token })
+    JSON.parse(response.body)
   end
 
 end
