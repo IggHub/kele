@@ -22,7 +22,7 @@ class Kele
     url = 'https://www.bloc.io/api/v1/mentors/'+(mentor_id.to_s)+'/student_availability'
     response = self.class.get(url, headers:{ "authorization" => @auth_token} )
     body = JSON.parse(response.body)
-    body.find_all {|x| x['booked'] == nil}
+    body.find_all {|x| x['booked'] == nil}.map {|x| x["starts_at"]}
   end
 
 
