@@ -45,7 +45,7 @@ class Kele
   def get_messages(arg = nil) #body:{page:...} means that when it is sending GET request, it is sending page number in body
     url = 'https://www.bloc.io/api/v1/message_threads'
     response = self.class.get(url, headers: { "authorization" => @auth_token })
-    body = JSON.parse(response.body)
+    body = JSON.parse(response.body) #does it return a JSON?
     if arg == nil
       pages = (1..response["count"]).map do |n| #This displays everything
         self.class.get(url, body: { page: n }, headers: { "authorization" => @auth_token })
@@ -67,7 +67,12 @@ class Kele
 
   def create_message(user_id, recipient_id, subject, stripped)
     url = 'https://www.bloc.io/api/v1/messages'
-
     self.class.post(url, body: {user_id: user_id, recipient_id: recipient_id, token: nil, subject: subject, stripped: stripped}, headers: { "authorization" => @auth_token })
+   end
+
+   def create_submission(assignment_branch, assignment_commit_link, checkpoint_id, comment, enrollment_id)
+     url = 'https://www.bloc.io/api/v1/checkpoint_submissions'
+     response = self.class.post(url, body: {"assignment_branch" => assignment_branch, "assignment_commit_link" => assignment_commit_link, "checkpoint_id" => checkpoint_id, "comment" => comment, "enrollment_id" => enrollment_id}, headers: {"authorization" => @auth_token})
+     body = JSON.parse(response.body)
    end
 end
