@@ -17,9 +17,10 @@ class Kele
     url = "https://www.bloc.io/api/v1/users/me"
     response = self.class.get(url, headers: { "authorization" => @auth_token })
     body = JSON.parse(response.body)
+    #body["current_enrollment"]["mentor_id"]
   end
 
-  def get_mentor_availability(mentor_id)
+  def get_mentor_availability(mentor_id = 2290632)
     url = 'https://www.bloc.io/api/v1/mentors/'+(mentor_id.to_s)+'/student_availability'
     response = self.class.get(url, headers:{ "authorization" => @auth_token} )
     body = JSON.parse(response.body)
@@ -56,4 +57,17 @@ class Kele
 
   #if I do (1..2).map, I get 20 "pages" and 2 "counts". If I do (1..3), 30 pages and 3 counts.
   #I have 52 counts. Meaning there are 52 * 10 = 520 messages.
+=begin
+  def create_message(user_id = 2319446, recipient_id = 2290632, token = nil, subject, stripped)
+    url = 'https://www.bloc.io/api/v1/messages'
+    response = self.class.post(url, body: {"user_id" => user_id, "recipient_id" => recipient_id, "token" => token, "subject" => subject, "stripped" => stripped}, headers:{ "authorization" => @auth_token})
+    body = JSON.parse(response.body)
+  end
+=end
+
+  def create_message(user_id, recipient_id, subject, stripped)
+    url = 'https://www.bloc.io/api/v1/messages'
+
+    self.class.post(url, body: {user_id: user_id, recipient_id: recipient_id, token: nil, subject: subject, stripped: stripped}, headers: { "authorization" => @auth_token })
+   end
 end
