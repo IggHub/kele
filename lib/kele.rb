@@ -41,4 +41,19 @@ class Kele
     body = JSON.parse(response.body)
   end
 =end
+  def get_messages(arg = nil) #body:{page:...} means that when it is sending GET request, it is sending page number in body
+    url = 'https://www.bloc.io/api/v1/message_threads'
+    response = self.class.get(url, headers: { "authorization" => @auth_token })
+    body = JSON.parse(response.body)
+    if arg == nil
+      pages = (1..response["count"]).map do |n| #This displays everything
+        self.class.get(url, body: { page: n }, headers: { "authorization" => @auth_token })
+      end
+    else
+        self.class.get(url, body: { page: arg}, headers: { "authorization" => @auth_token })
+    end
+  end
+
+  #if I do (1..2).map, I get 20 "pages" and 2 "counts". If I do (1..3), 30 pages and 3 counts.
+  #I have 52 counts. Meaning there are 52 * 10 = 520 messages.
 end
