@@ -67,7 +67,7 @@ class Kele
 
   def create_message(user_id, recipient_id, subject, stripped)
     url = 'https://www.bloc.io/api/v1/messages'
-    self.class.post(url, body: {user_id: user_id, recipient_id: recipient_id, token: nil, subject: subject, stripped: stripped}, headers: { "authorization" => @auth_token })
+    self.class.post(url, body: {user_id: user_id, recipient_id: recipient_id, subject: subject, stripped: stripped}, headers: { "authorization" => @auth_token })
    end
 
    def create_submission(assignment_branch, assignment_commit_link, checkpoint_id, comment, enrollment_id)
@@ -75,5 +75,5 @@ class Kele
      response = self.class.post(url, body: {"assignment_branch" => assignment_branch, "assignment_commit_link" => assignment_commit_link, "checkpoint_id" => checkpoint_id, "comment" => comment, "enrollment_id" => enrollment_id}, headers: {"authorization" => @auth_token})
      body = JSON.parse(response.body)
    end
-   
+
 end
