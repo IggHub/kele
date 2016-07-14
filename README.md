@@ -1,7 +1,7 @@
 ## KeleAPIClient
 ##### Easy-to-use Gem to access [Bloc's API](http://docs.blocapi.apiary.io/#)
 
-![KeleDemo](http://imgur.com/1wGJI2Y)
+[[https://camo.githubusercontent.com/a9648fb2934b698a863c0e63937b1561c6b0c858/687474703a2f2f692e696d6775722e636f6d2f7073527a5050532e676966]]
 
 ### Getting started with Kele Gem
 
@@ -61,4 +61,5 @@ Kele can create new Bloc checkpoint submission on Bloc using `create_submission(
     kele_client.create_submission(123,"part1-create-submission", "https://github.com/IggHub/kele/commit/12345abc...", "Final submission for Kele project - awesome!" )
 
 
-That's it! For any inquiries, feel free to email me: igoririanto@rocketmail.com
+That's it!  
+For any inquiries, feel free to email me: igoririanto@rocketmail.com
