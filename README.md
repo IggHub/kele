@@ -14,14 +14,12 @@ Require kele Gem on irb:
 To start, create a new variable using your Bloc's email and password. Kele will securely post your credentials to Bloc's API for a super awesome authentication token!
 
     kele_client = Kele.new('myAwesomeEmail@bloc.com', 'mySuperSecretPassword')
-    #=> ...@auth_token="Super-awesome-token">
 
 ### Retrieving user info
 
 On irb, use `get_me` method
 
     kele_client.get_me
-    #=> {"id"=>1234567, "slug"=>"awesome-bloc-dude", "name"=>"Awesome Bloccer", "email"=>"myAwesomeEmail@bloc.com", "title"=>nil, "first_name"=>"Awesome", "last_name"=>"Bloccer", "facebook_id"=>nil, "url"=>"/users/awesome-bloccer", "bio"=>"I was born awesome, what can I say?...
 
 Kele will return [json](https://en.wikipedia.org/wiki/JSON) type file about the user.
 
@@ -30,7 +28,7 @@ Kele will return [json](https://en.wikipedia.org/wiki/JSON) type file about the 
 Kele can retrieve Bloc mentor's available time should you want to check their schedule, given their mentor_id with `get_mentor_availability(mentor_id)`
 
     kele_client.get_mentor_availability(1234567)
-    #=> ["2016-07-19T00:00:00.000Z", "2016-07-20T01:00:00.000Z",...
+
 
 It will return a ruby array of mentor's available time in [Zulu Time](https://en.wikipedia.org/wiki/Coordinated_Universal_Time#Time_zones)
 
