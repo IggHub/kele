@@ -1,7 +1,7 @@
 ## KeleAPIClient
 ##### Easy-to-use Gem to access [Bloc's API](http://docs.blocapi.apiary.io/#)
 
-[[https://camo.githubusercontent.com/a9648fb2934b698a863c0e63937b1561c6b0c858/687474703a2f2f692e696d6775722e636f6d2f7073527a5050532e676966]]
+![Keledemo](https://camo.githubusercontent.com/a9648fb2934b698a863c0e63937b1561c6b0c858/687474703a2f2f692e696d6775722e636f6d2f7073527a5050532e676966)
 
 ### Getting started with Kele Gem
 
