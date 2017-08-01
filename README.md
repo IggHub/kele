@@ -11,6 +11,8 @@ Require kele Gem on irb:
 
  And that's it! Kele is ready to party.
 
+ *(If it does not work, simply run `irb -r kele -I ./lib`)*
+
 To start, create a new variable using your Bloc's email and password. Kele will securely post your credentials to Bloc's API for a super awesome authentication token!
 
     kele_client = Kele.new('myAwesomeEmail@bloc.com', 'mySuperSecretPassword')
